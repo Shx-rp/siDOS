@@ -10,7 +10,6 @@ Instalation: `pip3 install requests`
 + Floods websites with get requests
 
 ### Future plans
-+ Fixing screen flickering
 + Add hability to spawn broken headers/ Slow Loris attacks
 
 ## Disclaimer
