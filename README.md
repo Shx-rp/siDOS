@@ -15,3 +15,9 @@ Instalation: `pip3 install requests`
 
 ## Disclaimer
 This tool is meant for educational purposes only, any misuse of this application falls in responsibility of the user.
+
+## Update V0.5
+### **NEW**
++ the HUD will now only refresh every 500 requests.
+### **FIXES**
++ fixed some of the screen flickering that was caused by the program trying to update the interface at the same rate of the requests made.
